@@ -91,7 +91,7 @@ spec:
           mountPath: /opt/mr3-run/am-local-dir
         - name: work-dir-volume
           mountPath: /opt/mr3-run/work-dir/
-        - name: lib-from-work-dir-volume
+        - name: work-dir-volume
           mountPath: /opt/mr3-run/lib
           subPath: lib
       volumes:

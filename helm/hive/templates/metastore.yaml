@@ -96,7 +96,7 @@ spec:
         - name: work-dir-volume
           mountPath: {{ .Values.dir.persistentVolumeClaim }}
         {{- if .Values.metastore.mountLib }}
-        - name: lib-from-work-dir-volume
+        - name: work-dir-volume
           mountPath: {{ .Values.dir.base }}/lib
           subPath: lib
         {{- end }}
