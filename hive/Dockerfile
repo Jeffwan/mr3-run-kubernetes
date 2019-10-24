@@ -19,7 +19,7 @@ MAINTAINER Sungwoo Park "glapark@gmail.com"
 
 USER root
 
-RUN yum install -y java-1.8.0-openjdk-1.8.0.212.b04-0.el7_6 \
+RUN yum install -y java-1.8.0-openjdk \
     && echo "securerandom.source=file:/dev/urandom" >> /usr/lib/jvm/jre/lib/security/java.security \
     && yum install -y which \
     && yum clean all \
