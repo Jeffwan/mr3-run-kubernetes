@@ -23,6 +23,6 @@ ATS_DIR=$BASE_DIR/ats
 source $BASE_DIR/env.sh
 
 pushd $ATS_DIR > /dev/null
-sudo docker build -t $DOCKER_ATS_BUILD_IMG -f $DOCKER_ATS_FILE .
-sudo docker push $DOCKER_ATS_BUILD_IMG
+sudo docker build -t $DOCKER_ATS_IMG -f $DOCKER_ATS_FILE .
+sudo docker push $DOCKER_ATS_IMG
 popd > /dev/null
