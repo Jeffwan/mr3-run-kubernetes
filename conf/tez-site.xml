@@ -133,4 +133,16 @@
   <value>2500</value>
 </property>
 
+<!-- CartesianProductVertexManager -->
+
+<property>
+  <name>tez.cartesian-product.grouping-fraction</name>
+  <value>0.75</value>
+</property>
+
+<property>
+  <name>tez.cartesian-product.min-ops-per-worker</name>
+  <value>1000000</value>
+</property>
+
 </configuration>
