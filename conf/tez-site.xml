@@ -59,12 +59,12 @@
 
 <property>
   <name>tez.shuffle-vertex-manager.enable.auto-parallel</name>
-  <value>false</value>
+  <value>true</value>
 </property>
 
 <property>
   <name>tez.shuffle-vertex-manager.auto-parallel.min.num.tasks</name>
-  <value>20</value>
+  <value>40</value>
 </property>
 
 <property>
@@ -74,7 +74,7 @@
 
 <property>
   <name>tez.shuffle-vertex-manager.use-stats-auto-parallelism</name>
-  <value>false</value>
+  <value>true</value>
 </property>
 
 <property>
