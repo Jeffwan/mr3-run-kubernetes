@@ -331,4 +331,9 @@
   <value>false</value>
 </property>
 
+<property>
+  <name>mr3.container.termination.checker.timeout.ms</name>
+  <value>300000</value>
+</property>
+
 </configuration>
