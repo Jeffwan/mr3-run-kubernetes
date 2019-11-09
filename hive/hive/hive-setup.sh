@@ -106,7 +106,7 @@ function hive_setup_init_output_dir {
 function hive_setup_create_output_dir {
     base_dir=$1
 
-    time_stamp="$(date +"%Y-%m-%d--%H-%M-%S")"
+    time_stamp="$(date +"%Y-%m-%d-%H-%M-%S")"
     export OUT=$base_dir/hivemr3-$time_stamp
     mkdir -p $OUT > /dev/null 2>&1
     echo -e "Output directory: $OUT"
