@@ -33,9 +33,10 @@ WORK_DIR_PERSISTENT_VOLUME_CLAIM_MOUNT_DIR=/opt/mr3-run/work-dir
 
 # JAVA_HOME and PATH are already set inside the container.
 
-# if hive.mr3.compaction.using.mr3 is set to true, Metastore need PersistentVolume
-# see spec.template.spec.containers.volumes in yaml/metastore.yaml and metastore.mountLib in helm/hive/values.yaml
-METASTORE_USE_PERSISTENT_VOLUME=false
+# If hive.mr3.compaction.using.mr3 in conf/hive-site.xml is set to true, Metastore need a PersistentVolume.
+# See spec.template.spec.containers.volumeMounts/volumes in yaml/metastore.yaml and helm/hive/templates/metastore.yaml.
+# metastore.mountLib in helm/hive/values.yaml should be set to true to mount the MySQL connector provided by the user.
+METASTORE_USE_PERSISTENT_VOLUME=true
 RUN_AWS_EKS=false
 
 #

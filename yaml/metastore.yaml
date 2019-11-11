@@ -91,9 +91,9 @@ spec:
           mountPath: /opt/mr3-run/am-local-dir
         - name: work-dir-volume
           mountPath: /opt/mr3-run/work-dir/
-        - name: work-dir-volume
-          mountPath: /opt/mr3-run/lib
-          subPath: lib
+        # - name: work-dir-volume
+        #   mountPath: /opt/mr3-run/lib
+        #   subPath: lib
       volumes:
       - name: env-k8s-volume
         configMap:

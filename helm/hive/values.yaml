@@ -46,7 +46,7 @@ metastore:
   warehouseDir: hdfs://red0:8020/user/hive/warehouse
 
   initSchema: false
-  mountLib: true
+  mountLib: false
 
   secureMode: true
   kerberosPrincipal: hive/red0@RED

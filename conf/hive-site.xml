@@ -1196,7 +1196,7 @@
 
 <property>
   <name>hive.mr3.compaction.using.mr3</name>
-  <value>false</value>
+  <value>true</value>
 </property>
 
 </configuration>
