@@ -33,6 +33,8 @@ WORK_DIR_PERSISTENT_VOLUME_CLAIM_MOUNT_DIR=/opt/mr3-run/work-dir
 
 # JAVA_HOME and PATH are already set inside the container.
 
+# if hive.mr3.compaction.using.mr3 is set to true, Metastore need PersistentVolume
+# see spec.template.spec.containers.volumes in yaml/metastore.yaml and metastore.mountLib in helm/hive/values.yaml
 METASTORE_USE_PERSISTENT_VOLUME=false
 RUN_AWS_EKS=false
 
