@@ -107,8 +107,13 @@
 </property>
 
 <property>
-  <name>mr3.heartbeat.timeout.ms</name>
-  <value>600000</value>
+  <name>mr3.heartbeat.task.timeout.ms</name>
+  <value>60000</value>
+</property>
+
+<property>
+  <name>mr3.heartbeat.container.timeout.ms</name>
+  <value>300000</value>
 </property>
 
 <!-- Kubernetes -->
