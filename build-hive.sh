@@ -26,7 +26,7 @@ pushd $HIVE_DIR > /dev/null
 sudo docker build -t $DOCKER_HIVE_IMG -f $DOCKER_HIVE_FILE .
 sudo docker push $DOCKER_HIVE_IMG
 
-if [[ $DOCKER_HIVE_IMG != $DOCKER_HIVE_CONTAINER_WORKER_IMG ]]; then
-  sudo docker build -t $DOCKER_HIVE_CONTAINER_WORKER_IMG -f $DOCKER_HIVE_CONTAINER_WORKER_FILE .
-  sudo docker push $DOCKER_HIVE_CONTAINER_WORKER_IMG
+if [[ $DOCKER_HIVE_IMG != $DOCKER_HIVE_WORKER_IMG ]]; then
+  sudo docker build -t $DOCKER_HIVE_WORKER_IMG -f $DOCKER_HIVE_WORKER_FILE .
+  sudo docker push $DOCKER_HIVE_WORKER_IMG
 fi
