@@ -76,10 +76,14 @@ COPY mr3/mr3-setup.sh /opt/mr3-run/mr3/
 COPY tez/tez-setup.sh /opt/mr3-run/tez/
 
 COPY hadoop/apache-hadoop /opt/mr3-run/hadoop/apache-hadoop
-COPY hive/apache-hive /opt/mr3-run/hive/apache-hive
+COPY hive/apache-hive/lib/hive-exec-3.1.2.jar /opt/mr3-run/hive/apache-hive/lib/
+COPY hive/apache-hive/lib/hive-llap-common-3.1.2.jar /opt/mr3-run/hive/apache-hive/lib/
+COPY hive/apache-hive/lib/hive-llap-server-3.1.2.jar /opt/mr3-run/hive/apache-hive/lib/
+COPY hive/apache-hive/lib/hive-llap-tez-3.1.2.jar /opt/mr3-run/hive/apache-hive/lib/
 COPY lib /opt/mr3-run/lib
 COPY mr3/mr3lib /opt/mr3-run/mr3/mr3lib
 COPY tez/tezjar /opt/mr3-run/tez/tezjar
+
 
 # set environments
 

@@ -27,7 +27,7 @@ function mr3_setup_update_hadoop_opts {
     MR3_KUBERNETES_OPTS="-Dmr3.k8s.namespace=$MR3_NAMESPACE \
 -Dmr3.k8s.pod.master.serviceaccount=$MR3_SERVICE_ACCOUNT \
 -Dmr3.k8s.pod.master.image=$DOCKER_HIVE_IMG \
--Dmr3.k8s.pod.worker.image=$DOCKER_HIVE_IMG \
+-Dmr3.k8s.pod.worker.image=$DOCKER_HIVE_WORKER_IMG \
 -Dmr3.k8s.pod.master.user=$DOCKER_USER -Dmr3.k8s.master.working.dir=$REMOTE_WORK_DIR \
 -Dmr3.k8s.pod.worker.user=$DOCKER_USER -Dmr3.k8s.worker.working.dir=$REMOTE_WORK_DIR \
 -Dmr3.k8s.java.io.tmpdir=$REMOTE_WORK_DIR/tmp \

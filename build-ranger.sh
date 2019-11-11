@@ -23,6 +23,6 @@ RANGER_DIR=$BASE_DIR/ranger
 source $BASE_DIR/env.sh
 
 pushd $RANGER_DIR > /dev/null
-sudo docker build -t $DOCKER_RANGER_BUILD_IMG -f $DOCKER_RANGER_FILE .
-sudo docker push $DOCKER_RANGER_BUILD_IMG
+sudo docker build -t $DOCKER_RANGER_IMG -f $DOCKER_RANGER_FILE .
+sudo docker push $DOCKER_RANGER_IMG
 

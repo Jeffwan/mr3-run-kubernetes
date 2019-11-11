@@ -21,6 +21,8 @@ name:
 
 docker:
   image: 10.1.91.17:5000/hive5:latest
+  # if not set, docker.image will be used instead
+  containerWorkerImage:
   # do not use a composite name like hive@RED, hive/red0@RED
   user: hive
   imagePullPolicy: Always
