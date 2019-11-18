@@ -341,4 +341,51 @@
   <value>300000</value>
 </property>
 
+<!-- auto-scaling -->
+
+<property>
+  <name>mr3.enable.auto.scaling</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>mr3.memory.usage.check.scheme</name>
+  <value>average</value>
+</property>
+
+<property>
+  <name>mr3.auto.scale.out.threshold.percent</name>
+  <value>80</value>
+</property>
+
+<property>
+  <name>mr3.auto.scale.in.threshold.percent</name>
+  <value>40</value>
+</property>
+
+<property>
+  <name>mr3.memory.usage.check.window.length.secs</name>
+  <value>600</value>
+</property>
+
+<property>
+  <name>mr3.check.memory.usage.event.interval.secs</name>
+  <value>10</value>
+</property>
+
+<property>
+  <name>mr3.auto.scale.out.grace.period.secs</name>
+  <value>300</value>
+</property>
+
+<property>
+  <name>mr3.auto.scale.out.min.wait.period.secs</name>
+  <value>150</value>
+</property>
+
+<property>
+  <name>mr3.auto.scale.in.grace.period.secs</name>
+  <value>300</value>
+</property>
+
 </configuration>
