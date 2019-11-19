@@ -388,4 +388,9 @@
   <value>300</value>
 </property>
 
+<property>
+  <name>mr3.auto.scale.in.num.decrement.hosts</name>
+  <value>0</value>
+</property>
+
 </configuration>
