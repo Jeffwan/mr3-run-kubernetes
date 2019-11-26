@@ -1,6 +1,16 @@
 <configuration>
 
 <property>
+  <name>atlas.hook.hive.maxThreads</name>
+  <value>1</value>
+</property>
+
+<property>
+  <name>atlas.hook.hive.minThreads</name>
+  <value>1</value>
+</property>
+
+<property>
   <name>datanucleus.autoCreateSchema</name>
   <value>false</value>
 </property>
@@ -102,7 +112,7 @@
 
 <property>
   <name>hive.convert.join.bucket.mapjoin.tez</name>
-  <value>false</value>
+  <value>true</value>
 </property>
 
 <property>
@@ -221,16 +231,6 @@
 </property>
 
 <property>
-  <name>hive.exec.submit.local.task.via.child</name>
-  <value>true</value>
-</property>
-
-<property>
-  <name>hive.exec.submitviachild</name>
-  <value>false</value>
-</property>
-
-<property>
   <name>hive.fetch.task.aggr</name>
   <value>false</value>
 </property>
@@ -253,6 +253,41 @@
 <property>
   <name>hive.limit.pushdown.memory.usage</name>
   <value>0.04</value>
+</property>
+
+<property>
+  <name>hive.llap.auto.allow.uber</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>hive.llap.enable.grace.join.in.llap</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>hive.llap.io.memory.mode</name>
+  <value>cache</value>
+</property>
+
+<property>
+  <name>hive.llap.io.use.lrfu</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hive.llap.management.rpc.port</name>
+  <value>15004</value>
+</property>
+
+<property>
+  <name>hive.llap.object.cache.enabled</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hive.llap.task.scheduler.locality.delay</name>
+  <value>-1</value>
 </property>
 
 <property>
@@ -307,7 +342,7 @@
 
 <property>
   <name>hive.merge.nway.joins</name>
-  <value>false</value>
+  <value>true</value>
 </property>
 
 <property>
@@ -396,7 +431,7 @@
 
 <property>
   <name>hive.optimize.bucketmapjoin.sortedmerge</name>
-  <value>false</value>
+  <value>true</value>
 </property>
 
 <property>
@@ -585,11 +620,6 @@
 </property>
 
 <property>
-  <name>hive.tez.cpu.vcores</name>
-  <value>-1</value>
-</property>
-
-<property>
   <name>hive.tez.dynamic.partition.pruning</name>
   <value>true</value>
 </property>
@@ -602,11 +632,6 @@
 <property>
   <name>hive.tez.dynamic.partition.pruning.max.event.size</name>
   <value>1048576</value>
-</property>
-
-<property>
-  <name>hive.tez.exec.print.summary</name>
-  <value>true</value>
 </property>
 
 <property>
@@ -788,13 +813,11 @@
 <property>
   <name>javax.jdo.option.ConnectionUserName</name>
   <value>root</value>
-  <!-- <value>hivemr3</value> -->
 </property>
 
 <property>
   <name>javax.jdo.option.ConnectionPassword</name>
   <value>passwd</value>
-  <!-- <value>password</value> -->
 </property>
 
 <property>
@@ -909,6 +932,11 @@
   <value>true</value>
 </property>
 
+<property>
+  <name>hive.query.results.cache.enabled</name>
+  <value>false</value>
+</property>
+
 <!-- MR3 LLAP (configurable) -->
 
 <property>
@@ -939,27 +967,7 @@
   </description>
 </property>
 
-<property>
-  <name>hive.llap.enable.grace.join.in.llap</name>
-  <value>false</value>
-</property>
-
-<property>
-  <name>hive.llap.io.memory.mode</name>
-  <value>cache</value>
-</property>
-
-<property>
-  <name>hive.llap.io.use.lrfu</name>
-  <value>true</value>
-</property>
-
-<property>
-  <name>hive.llap.object.cache.enabled</name>
-  <value>true</value>
-</property>
-
-<!-- MR3 (fixed) -->
+<!-- MR3 LLAP (fixed) -->
 
 <property>
   <name>hive.execution.engine</name>
@@ -1004,7 +1012,7 @@
     
 <property>
   <name>hive.llap.client.consistent.splits</name>
-  <value>false</value>
+  <value>true</value>
 </property>
     
 <property>
@@ -1017,30 +1025,14 @@
   <value></value>
 </property>
 
+<!-- ZooKeeper -->
+
+<property>
+  <name>hive.zookeeper.quorum</name>
+  <value>red0:2181</value>
+</property>
+
 <!-- MR3 -->
-
-<property>
-  <name>hive.mr3.use.daemon.shufflehandler</name>
-  <value>true</value>
-</property>
-
-<property>
-  <name>hive.mr3.am.task.max.failed.attempts</name>
-  <value>2</value>
-</property>
-
-<property>
-  <name>hive.mr3.bucket.mapjoin.estimate.num.containers</name>
-  <value>-1</value>
-  <description>
-    Set to -1 in order to ask MR3 to get the number of ContainerWorkers at runtime
-  </description>
-</property>
-
-<property>
-  <name>hive.tez.llap.min.reducer.per.executor</name>
-  <value>0.2f</value>
-</property>
 
 <property>
   <name>hive.mr3.exec.print.summary</name>
@@ -1123,6 +1115,31 @@
   <value>2</value>
 </property>
 
+<property>
+  <name>hive.mr3.use.daemon.shufflehandler</name>
+  <value>true</value>
+</property>
+
+<property>
+  <name>hive.mr3.am.task.max.failed.attempts</name>
+  <value>2</value>
+</property>
+
+<property>
+  <name>hive.mr3.bucket.mapjoin.estimate.num.nodes</name>
+  <value>-1</value>
+  <description>
+    Set to -1 in order to ask MR3 to get the number of Nodes at runtime
+  </description>
+</property>
+
+<!-- scheduling 0.10 -->
+
+<property>
+  <name>hive.tez.llap.min.reducer.per.executor</name>
+  <value>0.2f</value>
+</property>
+
 <!-- Kubernetes -->
 
 <property>
@@ -1166,13 +1183,6 @@
   <value>hdfs://red0:8020/tmp/hivemr3/warehouse/</value>
 </property>
 
-<!-- ZooKeeper -->
-
-<property>
-  <name>hive.zookeeper.quorum</name>
-  <value>red0:2181</value>
-</property>
-
 <!-- Token renewal -->
 
 <property>
@@ -1183,13 +1193,6 @@
 <property>
   <name>hive.cluster.delegation.token.renew-interval</name>
   <value>86400000</value>
-</property>
-
-<!-- Beeline -->
-
-<property>
-  <name>hive.async.log.enabled</name>
-  <value>true</value>
 </property>
 
 <!-- Compaction -->
