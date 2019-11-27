@@ -147,22 +147,22 @@
 
 <property>
   <name>mr3.am.resource.memory.mb</name>
-  <value>8192</value>
+  <value>4096</value>
 </property>
 
 <property>
   <name>mr3.am.resource.cpu.cores</name>
-  <value>2</value>
+  <value>1</value>
 </property>
 
 <property>
   <name>mr3.am.local.resourcescheduler.max.memory.mb</name>
-  <value>8192</value>
+  <value>4096</value>
 </property>
 
 <property>
   <name>mr3.am.local.resourcescheduler.max.cpu.cores</name>
-  <value>8</value>
+  <value>4</value>
 </property>
 
 <property>
