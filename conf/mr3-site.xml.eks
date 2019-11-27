@@ -147,7 +147,7 @@
 
 <property>
   <name>mr3.am.resource.memory.mb</name>
-  <value>16384</value>
+  <value>8192</value>
 </property>
 
 <property>
@@ -167,20 +167,17 @@
 
 <property>
   <name>mr3.am.worker.mode</name>
-  <!-- <value>local</value> -->
   <value>kubernetes</value>
 </property>
 
 <property>
   <name>mr3.container.resourcescheduler.type</name>
-  <!-- <value>local</value> -->
   <value>kubernetes</value>
 </property>
 
-<!-- should be revised if mr3.master.mode == MR3_MASTER_MODE_KUBERNETES = "kubernetes" -->
 <property>
   <name>mr3.am.launch.env</name>
-  <value>LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$HADOOP_HOME/lib/native/</value>
+  <value>LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/mr3-run/hadoop/apache-hadoop/lib/native</value>
 </property>
 
 <property>
@@ -218,7 +215,7 @@
 
 <property>
   <name>mr3.am.token.renewal.paths</name>
-  <value>hdfs://red0:8020/user/hive/</value>
+  <value></value>
 </property>
 
 <!-- These variables are all set in mr3/mr3-setup.sh (for Kubernetes):
@@ -297,37 +294,46 @@
 
 <property>
   <name>mr3.k8s.host.aliases</name>
-  <value>gold0=10.1.90.9,red0=10.1.91.4,indigo20=10.1.91.41</value>
+  <value></value>
 </property>
+
+<!-- no instance storage for master Pod -->
 
 <property>
   <name>mr3.k8s.pod.master.emptydirs</name>
   <value>/opt/mr3-run/work-local-dir</value>
 </property>
 
-<!--
 <property>
   <name>mr3.k8s.pod.master.hostpaths</name>
   <value></value>
 </property>
- -->
 
-<!--
+<!-- no instance storage for worker Pod -->
+
 <property>
   <name>mr3.k8s.pod.worker.emptydirs</name>
   <value>/opt/mr3-run/work-local-dir</value>
 </property>
- -->
 
 <property>
   <name>mr3.k8s.pod.worker.hostpaths</name>
-  <value>/data1/k8s,/data2/k8s,/data3/k8s,/data4/k8s,/data5/k8s,/data6/k8s</value>
+  <value></value>
+</property>
+
+<!-- instance storage mounted on /ephemeral1 for worker Pod -->
+
+<!--
+<property>
+  <name>mr3.k8s.pod.worker.emptydirs</name>
+  <value></value>
 </property>
 
 <property>
-  <name>mr3.k8s.master.local.dir.persistentvolumes</name>
-  <value></value>
+  <name>mr3.k8s.pod.worker.hostpaths</name>
+  <value>/ephemeral1</value>
 </property>
+ -->
 
 <!--
 <property>
