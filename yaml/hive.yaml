@@ -91,6 +91,8 @@ spec:
           mountPath: /opt/mr3-run/work-dir
         - name: hiveserver2-ranger-policy-k8s-volume
           mountPath: /opt/mr3-run/hiveserver2-ranger-policycache
+        # - name: host-lib-volume
+        #   mountPath: /opt/mr3-run/host-lib
       volumes:
       - name: env-k8s-volume
         configMap:
@@ -108,3 +110,7 @@ spec:
           claimName: workdir-pvc
       - name: hiveserver2-ranger-policy-k8s-volume
         emptyDir: {}
+      # - name: host-lib-volume
+      #   hostPath:
+      #     path: /home/ec2-user/lib
+      #     type: Directory

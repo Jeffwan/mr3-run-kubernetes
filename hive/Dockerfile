@@ -65,7 +65,8 @@ RUN mkdir -p /opt/mr3-run && \
     mkdir -p /opt/mr3-run/key && \
     mkdir -p /opt/mr3-run/conf && \
     mkdir -p /opt/mr3-run/hive/tmp && \
-    mkdir -p /opt/mr3-run/hive/run-result 
+    mkdir -p /opt/mr3-run/hive/run-result && \
+    mkdir -p /opt/mr3-run/host-lib
 
 # copy files 
 
