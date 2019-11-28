@@ -100,6 +100,10 @@ spec:
           mountPath: {{ .Values.dir.base }}/lib
           subPath: lib
         {{- end }}
+        {{- if .Values.metastore.hostLib }}
+        - name: host-lib-volume
+          mountPath: {{ .Values.dir.base }}/host-lib
+        {{- end }}
       volumes:
       - name: env-k8s-volume
         configMap:
@@ -115,4 +119,10 @@ spec:
       - name: work-dir-volume
         persistentVolumeClaim:
           claimName: {{ .Values.name.persistentVolumeClaim }}
+      {{- if .Values.metastore.hostLib }}
+      - name: host-lib-volume
+        hostPath:
+          path: {{ .Values.metastore.hostLibDir }}
+          type: Directory
+      {{- end }}
 {{ end }}

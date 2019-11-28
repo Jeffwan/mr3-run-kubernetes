@@ -31,17 +31,11 @@ spec:
                 matchLabels:
                   hivemr3_app: ranger
       hostAliases:
-      - ip: "10.1.90.9"
+      - ip: "10.10.10.10"
         hostnames:
-        - "gold0"
-      - ip: "10.1.91.4"
-        hostnames:
-        - "red0"
-      - ip: "10.1.91.17"
-        hostnames:
-        - "indigo0"
+        - "pl"
       containers:
-      - image: 10.1.91.17:5000/hive5:latest
+      - image: glaparkdocker/hive3eks
         command: ["/opt/mr3-run/hive/metastore-service.sh"]
         args: ["start", "--kubernetes"]
         imagePullPolicy: Always
@@ -69,11 +63,11 @@ spec:
               key: ats-secret-key
         resources:
           requests:
-            cpu: 2
-            memory: 16Gi
+            cpu: 1 
+            memory: 4Gi
           limits:
-            cpu: 2
-            memory: 16Gi
+            cpu: 1 
+            memory: 4Gi
         ports:
         - containerPort: 9850
           protocol: TCP
@@ -94,8 +88,8 @@ spec:
         # - name: work-dir-volume
         #   mountPath: /opt/mr3-run/lib
         #   subPath: lib
-        # - name: host-lib-volume
-        #   mountPath: /opt/mr3-run/host-lib
+        - name: host-lib-volume
+          mountPath: /opt/mr3-run/host-lib
       volumes:
       - name: env-k8s-volume
         configMap:
@@ -111,7 +105,7 @@ spec:
       - name: work-dir-volume
         persistentVolumeClaim:
           claimName: workdir-pvc
-      # - name: host-lib-volume
-      #   hostPath:
-      #     path: /home/ec2-user/lib
-      #     type: Directory
+      - name: host-lib-volume
+        hostPath:
+          path: /home/ec2-user/lib
+          type: Directory

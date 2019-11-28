@@ -20,15 +20,9 @@ spec:
       serviceAccountName: hive-service-account
       restartPolicy: Always
       hostAliases:
-      - ip: "10.1.90.9"
+      - ip: "10.10.10.10"
         hostnames:
-        - "gold0"
-      - ip: "10.1.91.4"
-        hostnames:
-        - "red0"
-      - ip: "10.1.91.41"
-        hostnames:
-        - "indigo20"
+        - "pl"
       affinity:
         podAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -39,7 +33,7 @@ spec:
                 matchLabels:
                   hivemr3_app: metastore
       containers:
-      - image: 10.1.91.17:5000/hive5:latest
+      - image: glaparkdocker/hive3eks
         command: ["/opt/mr3-run/hive/hiveserver2-service.sh"]
         args: ["start", "--kubernetes"]
         imagePullPolicy: Always
@@ -67,11 +61,11 @@ spec:
               key: ats-secret-key
         resources:
           requests:
-            cpu: 2
-            memory: 16Gi
+            cpu: 1 
+            memory: 4Gi
           limits:
-            cpu: 2
-            memory: 16Gi
+            cpu: 1 
+            memory: 4Gi
         ports:
         - containerPort: 9852
           protocol: TCP
@@ -91,8 +85,6 @@ spec:
           mountPath: /opt/mr3-run/work-dir
         - name: hiveserver2-ranger-policy-k8s-volume
           mountPath: /opt/mr3-run/hiveserver2-ranger-policycache
-        # - name: host-lib-volume
-        #   mountPath: /opt/mr3-run/host-lib
       volumes:
       - name: env-k8s-volume
         configMap:
@@ -110,7 +102,3 @@ spec:
           claimName: workdir-pvc
       - name: hiveserver2-ranger-policy-k8s-volume
         emptyDir: {}
-      # - name: host-lib-volume
-      #   hostPath:
-      #     path: /home/ec2-user/lib
-      #     type: Directory

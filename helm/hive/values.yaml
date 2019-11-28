@@ -47,6 +47,8 @@ metastore:
 
   initSchema: false
   mountLib: false
+  hostLib: false
+  hostLibDir: "/home/ec2-user/lib"
 
   secureMode: true
   kerberosPrincipal: hive/red0@RED
