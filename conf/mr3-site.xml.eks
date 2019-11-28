@@ -410,8 +410,8 @@
 </property>
 
 <property>
-  <name>mr3.auto.scale.out.min.wait.period.secs</name>
-  <value>300</value>
+  <name>mr3.auto.scale.in.delay.after.scale.out.secs</name>
+  <value>60</value>
 </property>
 
 <property>
