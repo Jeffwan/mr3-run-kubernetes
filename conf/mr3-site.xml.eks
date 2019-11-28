@@ -406,7 +406,7 @@
 
 <property>
   <name>mr3.auto.scale.out.grace.period.secs</name>
-  <value>600</value>
+  <value>300</value>
 </property>
 
 <property>
@@ -416,7 +416,7 @@
 
 <property>
   <name>mr3.auto.scale.in.grace.period.secs</name>
-  <value>450</value>
+  <value>300</value>
 </property>
 
 <property>
