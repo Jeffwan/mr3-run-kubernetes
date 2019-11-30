@@ -24,7 +24,7 @@
 
 <property>
   <name>mr3.am.launch.cmd-opts</name>
-  <value>-server -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -XX:+UseNUMA -XX:+UseG1GC -XX:+ResizeTLAB -Dlog4j.configurationFile=k8s-mr3-container-log4j2.properties -Djavax.security.auth.useSubjectCredsOnly=false -Djava.security.auth.login.config=/opt/mr3-run/conf/jgss.conf -Djava.security.krb5.conf=/opt/mr3-run/conf/krb5.conf -Dsun.security.jgss.debug=true -Djavax.net.ssl.trustStore=/opt/mr3-run/key/hivemr3-ssl-certificate.jks -Djavax.net.ssl.trustStoreType=jks</value>
+  <value>-server -Djava.net.preferIPv4Stack=true -Dhadoop.metrics.log.level=WARN -XX:+UseNUMA -XX:+UseG1GC -XX:+ResizeTLAB -Dlog4j.configurationFile=k8s-mr3-container-log4j2.properties -Djavax.security.auth.useSubjectCredsOnly=false -Djava.security.auth.login.config=/opt/mr3-run/conf/jgss.conf -Djava.security.krb5.conf=/opt/mr3-run/conf/krb5.conf -Dsun.security.jgss.debug=true</value>
 </property>
 
 <property>
@@ -284,7 +284,7 @@
 
 <property>
   <name>mr3.k8s.pod.image.pull.policy</name>
-  <value>Always</value>
+  <value>IfNotPresent</value>
 </property>
 
 <property>
@@ -311,6 +311,7 @@
 
 <!-- no instance storage for worker Pod -->
 
+<!--
 <property>
   <name>mr3.k8s.pod.worker.emptydirs</name>
   <value>/opt/mr3-run/work-local-dir</value>
@@ -320,10 +321,10 @@
   <name>mr3.k8s.pod.worker.hostpaths</name>
   <value></value>
 </property>
+ -->
 
 <!-- instance storage mounted on /ephemeral1 for worker Pod -->
 
-<!--
 <property>
   <name>mr3.k8s.pod.worker.emptydirs</name>
   <value></value>
@@ -333,7 +334,6 @@
   <name>mr3.k8s.pod.worker.hostpaths</name>
   <value>/ephemeral1</value>
 </property>
- -->
 
 <!--
 <property>
@@ -376,7 +376,7 @@
 
 <property>
   <name>mr3.enable.auto.scaling</name>
-  <value>false</value>
+  <value>true</value>
 </property>
 
 <property>
@@ -411,12 +411,12 @@
 
 <property>
   <name>mr3.auto.scale.in.delay.after.scale.out.secs</name>
-  <value>60</value>
+  <value>300</value>
 </property>
 
 <property>
   <name>mr3.auto.scale.in.grace.period.secs</name>
-  <value>300</value>
+  <value>90</value>
 </property>
 
 <property>

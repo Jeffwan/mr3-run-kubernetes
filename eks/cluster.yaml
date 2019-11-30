@@ -37,7 +37,7 @@ nodeGroups:
     minSize: 0
     maxSize: 3
     instancesDistribution:
-      instanceTypes: ["m5d.large", "m5d.xlarge"] 
+      instanceTypes: ["m5d.xlarge", "m5d.2xlarge"] 
       onDemandBaseCapacity: 0
       onDemandPercentageAboveBaseCapacity: 0
       spotInstancePools: 1

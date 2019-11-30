@@ -22,6 +22,14 @@ spec:
       serviceAccountName: hive-service-account
       restartPolicy: Always
       affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: roles
+                operator: In
+                values:
+                - "masters"
         podAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
           - weight: 100
@@ -35,7 +43,7 @@ spec:
         hostnames:
         - "pl"
       containers:
-      - image: glaparkdocker/hive3eks
+      - image: glaparkdocker/hive3eks:0.11
         command: ["/opt/mr3-run/hive/metastore-service.sh"]
         args: ["start", "--kubernetes"]
         imagePullPolicy: Always
