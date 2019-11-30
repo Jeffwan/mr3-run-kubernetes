@@ -12,7 +12,7 @@
 
 <property>
   <name>dfs.encryption.key.provider.uri</name>
-  <value>kms://http@red0:9292/kms</value>
+  <value></value>
 </property>
 
 <!--
