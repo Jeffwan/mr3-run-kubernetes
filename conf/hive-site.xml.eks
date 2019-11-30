@@ -1067,37 +1067,37 @@
 
 <property>
   <name>hive.mr3.map.task.memory.mb</name>
-  <value>3072</value>
+  <value>3850</value>
 </property>
 
 <property>
   <name>hive.mr3.map.task.vcores</name>
-  <value>1</value>
+  <value>0</value>
 </property>
 
 <property>
   <name>hive.mr3.reduce.task.memory.mb</name>
-  <value>3072</value>
+  <value>3850</value>
 </property>
 
 <property>
   <name>hive.mr3.reduce.task.vcores</name>
-  <value>1</value>
+  <value>0</value>
 </property>
 
 <property>
   <name>hive.mr3.all-in-one.containergroup.memory.mb</name>
-  <value>12288</value>
+  <value>15400</value>
 </property>
 
 <property>
   <name>hive.mr3.all-in-one.containergroup.vcores</name>
-  <value>4</value>
+  <value>3</value>
 </property>
 
 <property>
   <name>hive.mr3.map.containergroup.memory.mb</name>
-  <value>3072</value>
+  <value>3850</value>
 </property>
 
 <property>
@@ -1107,7 +1107,7 @@
 
 <property>
   <name>hive.mr3.reduce.containergroup.memory.mb</name>
-  <value>3072</value>
+  <value>3850</value>
 </property>
 
 <property>
@@ -1200,6 +1200,54 @@
 <property>
   <name>hive.mr3.compaction.using.mr3</name>
   <value>true</value>
+</property>
+
+<!-- S3 -->
+
+<property>
+  <name>fs.s3a.connection.ssl.enabled</name>
+  <value>false</value>
+</property>
+
+<property>
+  <name>fs.s3a.connection.maximum</name>
+  <value>250</value>
+</property>
+
+<property>
+  <name>fs.s3a.threads.core</name>
+  <value>250</value>
+  <description>The value of fs.s3a.threads.max is 256.</description>
+</property>
+
+<property>
+  <name>hive.exec.input.listing.max.threads</name>
+  <value>50</value>
+</property>
+
+<property>
+  <name>mapreduce.input.fileinputformat.list-status.num-threads</name>
+  <value>50</value>
+</property>
+
+<property>
+  <name>hive.metastore.fshandler.threads</name>
+  <value>50</value>
+</property>
+
+<property>
+  <name>hive.msck.repair.batch.size</name>
+  <value>3000</value>
+</property>
+
+<property>
+  <name>hive.load.dynamic.partitions.thread</name>
+  <value>25</value>
+</property>
+
+<property>
+  <name>hive.mv.files.threads</name>
+  <value>40</value>
 </property>
 
 </configuration>
