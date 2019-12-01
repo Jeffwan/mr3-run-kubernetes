@@ -264,7 +264,10 @@
 
 <property>
   <name>mr3.k8s.pod.creation.timeout.ms</name>
-  <value>60000</value>
+  <value>300000</value>
+  <description>
+    The default value of 1 minute is too short on EKS.
+  </description>
 </property>
 
 <property>
