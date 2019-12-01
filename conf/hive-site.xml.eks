@@ -490,31 +490,6 @@
 </property>
 
 <property>
-  <name>hive.server2.tez.default.queues</name>
-  <value>default</value>
-</property>
-
-<property>
-  <name>hive.server2.tez.initialize.default.sessions</name>
-  <value>false</value>
-</property>
-
-<property>
-  <name>hive.server2.tez.sessions.custom.queue.allowed</name>
-  <value>ignore</value>
-</property>
-
-<property>
-  <name>hive.server2.tez.sessions.per.default.queue</name>
-  <value>16</value>
-</property>
-
-<property>
-  <name>hive.server2.tez.sessions.restricted.configs</name>
-  <value>hive.execution.mode,hive.execution.engine</value>
-</property>
-
-<property>
   <name>hive.server2.thrift.http.path</name>
   <value>cliservice</value>
 </property>
