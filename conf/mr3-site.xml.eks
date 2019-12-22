@@ -442,4 +442,11 @@
   <value>1</value>
 </property>
 
+<!-- using S3 instead of EFS -->
+
+<property>
+  <name>mr3.am.staging.dir.check.ownership.permission</name>
+  <value>false</value>
+</property>
+
 </configuration>
