@@ -100,7 +100,7 @@
 </property>
 
 <property>
-  <name>tez.shuffle.max.thread</name>
+  <name>tez.shuffle.max.threads</name>
   <value>0</value>
 </property>
 
