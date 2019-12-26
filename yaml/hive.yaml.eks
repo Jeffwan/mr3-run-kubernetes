@@ -33,7 +33,7 @@ spec:
                 matchLabels:
                   hivemr3_app: metastore
       containers:
-      - image: glaparkdocker/hive3eks:0.11
+      - image: glaparkdocker/hive3eks:0.12
         command: ["/opt/mr3-run/hive/hiveserver2-service.sh"]
         args: ["start", "--kubernetes"]
         imagePullPolicy: Always
