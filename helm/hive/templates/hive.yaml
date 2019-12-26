@@ -95,8 +95,8 @@ spec:
           mountPath: {{ .Values.dir.base }}/hiveserver2-ranger-policycache
       volumes:
       - name: env-k8s-volume
-        configMap:
-          name: {{ .Values.name.envConfigMap }}
+        secret:
+          secretName: {{ .Values.name.envSecret }}
       - name: conf-k8s-volume
         configMap:
           name: {{ .Values.name.hive.configMap }}

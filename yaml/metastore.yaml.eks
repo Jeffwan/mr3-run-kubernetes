@@ -100,8 +100,8 @@ spec:
           mountPath: /opt/mr3-run/host-lib
       volumes:
       - name: env-k8s-volume
-        configMap:
-          name: env-configmap
+        secret:
+          secretName: env-secret
       - name: conf-k8s-volume
         configMap:
           name: hivemr3-conf-configmap

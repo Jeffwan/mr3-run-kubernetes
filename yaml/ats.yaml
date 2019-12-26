@@ -54,8 +54,8 @@ spec:
       mountPath: /opt/mr3-run/ats/work-dir/
   volumes:
   - name: env-k8s-volume
-    configMap:
-      name: env-configmap
+    secret:
+      secretName: env-secret
   - name: ats-conf-k8s-volume
     configMap:
       name: hivemr3-ats-conf-configmap

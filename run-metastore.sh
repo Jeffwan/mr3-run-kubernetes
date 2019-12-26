@@ -40,7 +40,7 @@ if [ $METASTORE_USE_PERSISTENT_VOLUME = true ]; then
   fi
 fi
 
-kubectl create -n $MR3_NAMESPACE configmap env-configmap --from-file=$BASE_DIR/env.sh
+kubectl create -n $MR3_NAMESPACE secret generic env-secret --from-file=$BASE_DIR/env.sh
 kubectl create -n $MR3_NAMESPACE configmap $CONF_DIR_CONFIGMAP --from-file=$BASE_DIR/conf/
 
 if [ $CREATE_KEYTAB_SECRET = true ]; then

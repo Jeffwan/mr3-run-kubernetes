@@ -1,6 +1,7 @@
 apiVersion: v1
-kind: ConfigMap
+kind: Secret
 metadata:
-  name: {{ .Values.name.envConfigMap }}
+  name: {{ .Values.name.envSecret }}
+type: Opaque
 data:
   {{- (tpl (.Files.Glob "env.sh").AsConfig .) | nindent 2 }}

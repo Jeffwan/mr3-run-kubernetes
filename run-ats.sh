@@ -47,7 +47,7 @@ else
 fi
 
 # ConfigMaps
-kubectl create -n $MR3_NAMESPACE configmap env-configmap --from-file=$BASE_DIR/env.sh
+kubectl create -n $MR3_NAMESPACE secret generic env-secret --from-file=$BASE_DIR/env.sh
 kubectl create -n $MR3_NAMESPACE configmap hivemr3-ats-conf-configmap --from-file=$BASE_DIR/ats-conf/
 
 # reuse ATS_SECRET_KEY if already defined; use a random UUID otherwise
