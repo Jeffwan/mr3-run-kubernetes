@@ -15,6 +15,9 @@
 DIR="$(cd "$(dirname "$0")" && pwd)"
 BASE_DIR=$(readlink -f $DIR/..)
 source $BASE_DIR/env.sh
+if [[ -f "$BASE_DIR/env-secret.sh" ]]; then
+  source $BASE_DIR/env-secret.sh
+fi
 source $BASE_DIR/common-setup.sh
 source $HADOOP_BASE_DIR/hadoop-setup.sh
 source $TEZ_BASE_DIR/tez-setup.sh

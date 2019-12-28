@@ -15,22 +15,23 @@ name:
   metastore:
     service: metastore
   envConfigMap: env-configmap
+  envSecret: env-secret
   amConfigMap: client-am-config
   persistentVolume: workdir-pv
   persistentVolumeClaim: workdir-pvc
 
 docker:
-  image: 10.1.91.17:5000/hive5:latest
+  image: glaparkdocker/hive3eks:0.12
   # if not set, docker.image will be used instead
   containerWorkerImage:
   # do not use a composite name like hive@RED, hive/red0@RED
   user: hive
-  imagePullPolicy: Always
+  imagePullPolicy: IfNotPresent
   imagePullSecrets: 
 
 create:
   # specifies whether or not to create metastore service inside k8s
-  metastore: false
+  metastore: true
 
 metastore:
   # if create.metastore == true, this field will be ignored and 
@@ -38,43 +39,43 @@ metastore:
   host: red0
   port: 9850
 
-  databaseHost: indigo0
+  databaseHost: mysql.hivemr3.svc.cluster.local
   databaseName: hive5mr3
   # argument to schemaTool (not for hive.metastore.db.type in hive-site.xml)
   dbType: mysql
 
-  warehouseDir: hdfs://red0:8020/user/hive/warehouse
+  warehouseDir: s3a://your-warehouse-dir/warehouse
 
-  initSchema: false
-  mountLib: false
+  initSchema: true
+  mountLib: true
   hostLib: false
   hostLibDir: "/home/ec2-user/lib"
 
-  secureMode: true
+  secureMode: false
   kerberosPrincipal: hive/red0@RED
   # keytab file under dir.keytab
   kerberosKeytab: "hive.service.keytab"
   
   resources:
     requests:
-      cpu: 2
-      memory: 16Gi
+      cpu: 1
+      memory: 8Gi
     limits:
-      cpu: 2
-      memory: 16Gi
-  heapSize: 16384
+      cpu: 1
+      memory: 8Gi
+  heapSize: 8192
 
 hive:
   port: 9852
-  externalIp: 10.1.91.41
+  externalIp: 12.34.56.78
   replicas: 1
   # amMode options: kubernetes, localthread, and localprocess
   amMode: kubernetes
 
   # specifies whether or not to create a Secret from dir.keytab/*
-  createSecret: true
+  createSecret: false
   # authentication options: NONE (uses plain SASL), NOSASL, KERBEROS, LDAP, PAM, and CUSTOM
-  authentication: KERBEROS
+  authentication: NONE
   kerberosPrincipal: hive/red0@RED
   # keytab file under dir.keytab
   kerberosKeytab: "hive.service.keytab"
@@ -89,12 +90,12 @@ hive:
 
   resources:
     requests:
-      cpu: 2
-      memory: 16Gi
+      cpu: 1
+      memory: 8Gi
     limits:
-      cpu: 2
-      memory: 16Gi
-  heapSize: 16384
+      cpu: 1
+      memory: 8Gi
+  heapSize: 8192
 
 # for reading from secure HDFS
 hdfs:
@@ -115,7 +116,7 @@ workDir:
   # field name.persistentVolume, and PersistentVolume if necessary
   create: true
 
-  isNfs: true
+  isNfs: false
   nfs:
     server: "10.1.91.17"
     path: "/work/nfs/mr3-run-work-dir"
@@ -126,7 +127,7 @@ workDir:
   # volumeStr should be indented properly with a double space (or multiple double spaces) after '\n'.
   #   ex. okay  -> volumeStr: "hostPath:\n  path: /work/nfs/mr3-run-work-dir"
   #   ex. wrong -> volumeStr: "hostPath:\n path: /work/nfs/mr3-run-work-dir"
-  volumeStr: 
+  volumeStr: "hostPath:\n  path: /data1/gla/workdir"
 
 logLevel: INFO
 

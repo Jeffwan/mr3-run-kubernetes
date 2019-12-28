@@ -85,6 +85,9 @@ spec:
         - name: env-k8s-volume
           mountPath: {{ .Values.dir.base }}/env.sh
           subPath: env.sh
+        - name: env-secret-k8s-volume
+          mountPath: {{ .Values.dir.base }}/env-secret.sh
+          subPath: env-secret.sh
         - name: conf-k8s-volume
           mountPath: {{ .Values.dir.conf }}
           readOnly: true
@@ -108,6 +111,9 @@ spec:
       - name: env-k8s-volume
         configMap:
           name: {{ .Values.name.envConfigMap }}
+      - name: env-secret-k8s-volume
+        secret:
+          secretName: {{ .Values.name.envSecret }}
       - name: conf-k8s-volume
         configMap:
           name: {{ .Values.name.hive.configMap }}
