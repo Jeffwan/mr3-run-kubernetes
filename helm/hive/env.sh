@@ -30,7 +30,7 @@ WORK_DIR_PERSISTENT_VOLUME_CLAIM_MOUNT_DIR={{.Values.dir.persistentVolumeClaim}}
 #
 
 DOCKER_HIVE_IMG={{.Values.docker.image}}
-DOCKER_HIVE_WORKER_IMG= {{- .Values.docker.containerWorkerImage | default .Values.docker.image}}
+DOCKER_HIVE_WORKER_IMG= {{ .Values.docker.containerWorkerImage | default .Values.docker.image}}
 DOCKER_USER={{.Values.docker.user}}
 
 #
