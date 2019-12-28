@@ -22,8 +22,7 @@ name:
 
 docker:
   image: glaparkdocker/hive3eks:0.12
-  # if not set, docker.image will be used instead
-  containerWorkerImage:
+  containerWorkerImage: glaparkdocker/hive3eks:0.12
   # do not use a composite name like hive@RED, hive/red0@RED
   user: hive
   imagePullPolicy: IfNotPresent
