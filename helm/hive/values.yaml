@@ -14,7 +14,7 @@ name:
     secret: hivemr3-keytab-secret
   metastore:
     service: metastore
-  envSecret: env-secret
+  envConfigMap: env-configmap
   amConfigMap: client-am-config
   persistentVolume: workdir-pv
   persistentVolumeClaim: workdir-pvc

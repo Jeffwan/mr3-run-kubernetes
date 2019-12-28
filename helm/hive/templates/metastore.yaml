@@ -106,8 +106,8 @@ spec:
         {{- end }}
       volumes:
       - name: env-k8s-volume
-        secret:
-          secretName: {{ .Values.name.envSecret }}
+        configMap:
+          name: {{ .Values.name.envConfigMap }}
       - name: conf-k8s-volume
         configMap:
           name: {{ .Values.name.hive.configMap }}
